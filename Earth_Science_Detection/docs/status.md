@@ -13,7 +13,7 @@
 
 Additional geographic boundary overlays; geographic search; polygon/bounding-box selection and area weighting; region comparison; Three.js globe (the current reference design intentionally uses only 2D maps); dedicated latest-data mode; Theil–Sen and seasonal/autocorrelation-adjusted tests; AppEEARS, Oceans, GISTEMP and Cryosphere adapters; persistent jobs/storage; hosted authentication; public or private deployment.
 
-The supplied beige reference is now the design basis. The visible page structure lives directly in index.html. Five top tabs replace sidebar navigation. A scrollable point inspector accompanies the MapLibre map. Each system has its own NASA GIBS imagery layer and provider legend where supplied. Clicking a point recenters the map; Atmosphere automatically retrieves POWER observations. Other systems support imagery viewing only, with numerical measurements explicitly unavailable. The illustrated AOD/PM/ozone readings in the reference have not been copied as observations.
+The supplied beige reference is now the design basis. The visible page structure lives directly in frontend/tracker.html. Five top tabs replace sidebar navigation. A scrollable point inspector accompanies the MapLibre map. Each system has its own NASA GIBS imagery layer and provider legend where supplied. Clicking a point recenters the map; Atmosphere automatically retrieves POWER observations. Other systems support imagery viewing only, with numerical measurements explicitly unavailable. The illustrated AOD/PM/ozone readings in the reference have not been copied as observations.
 
 ## Validation
 

@@ -21,7 +21,7 @@ Keep the host bound to loopback. This release has no hosted authentication and m
 
 ```text
 frontend/
-  index.html               Complete page design: header, tabs, inspector, map controls, chart and source sections
+  tracker.html             Complete page design: header, tabs, inspector, map controls, chart and source sections
   css/styles.css           Responsive beige theme, JetBrains Mono + DM Sans, inspector and map layouts
   js/app.js                Five system routes, selection, requests and scientific result rendering
   js/catalog.js            System imagery layers and numerical variable definitions
@@ -49,7 +49,7 @@ See [architecture](docs/architecture.md) and [implementation status](docs/status
 
 ## Reference redesign
 
-The interface follows the supplied beige map reference. Its visible markup is in `frontend/index.html`; CSS and behavior remain separate for maintenance. The five tabs are Atmosphere, Geosphere, Hydrosphere, Biosphere and Cryosphere. Legacy `/land` and `/oceans` routes open Biosphere and Hydrosphere.
+The interface follows the supplied beige map reference. Its visible markup is in `frontend/tracker.html`; CSS and behavior remain separate for maintenance. The five tabs are Atmosphere, Geosphere, Hydrosphere, Biosphere and Cryosphere. Legacy `/land` and `/oceans` routes open Biosphere and Hydrosphere.
 
 Run through FastAPI rather than opening the HTML with `file://`, so native JavaScript modules and `/api` requests work. MapLibre is vendored locally; NASA imagery, legends and Google Fonts require network access. GIBS layers are imagery only and do not supply numerical point readings. Atmosphere measurements come separately from POWER. The default imagery date is 2024-07-01; it is independent of the historical point-analysis period.
 
