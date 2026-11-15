@@ -151,4 +151,4 @@ def frontend(route: str):
         if FRONTEND in target.parents and target.is_file():
             return FileResponse(target)
         raise HTTPException(404, 'Asset not found')
-    return FileResponse(FRONTEND / 'tracker.html')
+    return FileResponse(FRONTEND / 'index.html')
