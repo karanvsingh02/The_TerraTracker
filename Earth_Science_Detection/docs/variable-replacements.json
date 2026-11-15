@@ -1,0 +1,74 @@
+[
+  {
+    "system": "atmosphere",
+    "previousVariable": "Carbon dioxide",
+    "variable": "Carbon monoxide",
+    "layer": "AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Monthly_Day",
+    "provider": "NASA Aqua / AIRS",
+    "reason": "Monthly daytime carbon monoxide mixing ratio at 500 hPa, not surface air quality. This broad gridded pollution product replaces the sparse OCO-2 carbon-dioxide tracks; CO and CO₂ are different gases."
+  },
+  {
+    "system": "geosphere",
+    "previousVariable": "Gravity anomaly",
+    "variable": "Surface soil moisture",
+    "layer": "SMAP_L4_Analyzed_Surface_Soil_Moisture",
+    "provider": "NASA SMAP",
+    "reason": "Surface-layer soil moisture from a satellite-constrained land model. Ocean pixels are outside the product’s land domain."
+  },
+  {
+    "system": "geosphere",
+    "previousVariable": "Surface roughness",
+    "variable": "Surface albedo",
+    "layer": "MERRA2_Surface_Albedo_Monthly",
+    "provider": "NASA MERRA-2",
+    "reason": "Monthly modeled surface reflectivity: the fraction of incoming sunlight reflected by the surface. This is not surface roughness."
+  },
+  {
+    "system": "geosphere",
+    "previousVariable": "Land subsidence",
+    "variable": "Soil temperature",
+    "layer": "SMAP_L4_Soil_Temperature_Layer_1",
+    "provider": "NASA SMAP",
+    "reason": "Modeled upper-layer soil temperature from the SMAP land model, not atmospheric temperature or land subsidence."
+  },
+  {
+    "system": "geosphere",
+    "previousVariable": "Tectonic movement",
+    "variable": "Root-zone soil moisture",
+    "layer": "SMAP_L4_Analyzed_Root_Zone_Soil_Moisture",
+    "provider": "NASA SMAP",
+    "reason": "Satellite-constrained modeled moisture deeper in the soil, where plant roots draw water. This is a land-water measurement, not tectonic motion."
+  },
+  {
+    "system": "cryosphere",
+    "previousVariable": "Ice thickness",
+    "variable": "Snow water equivalent",
+    "layer": "AMSRU2_Snow_Water_Equivalent_Monthly",
+    "provider": "NASA GIBS / GCOM-W1 AMSR2",
+    "reason": "Monthly water stored in seasonal snow, expressed as the depth of melted water. The retrieval has land, snow and regional limitations; it is not glacier or sea-ice thickness."
+  },
+  {
+    "system": "cryosphere",
+    "previousVariable": "Ice sheet elevation",
+    "variable": "Freeze/thaw state",
+    "layer": "SMAP_L3_Passive_Enhanced_Day_Freeze_Thaw",
+    "provider": "NASA SMAP",
+    "reason": "Morning land-surface freeze/thaw classification. It is categorical, not ice-sheet elevation; unmapped areas are outside the valid retrieval domain."
+  },
+  {
+    "system": "biosphere",
+    "previousVariable": "Vegetation cover",
+    "variable": "Gross primary productivity",
+    "layer": "SMAP_L4_Mean_Gross_Primary_Productivity",
+    "provider": "NASA SMAP",
+    "reason": "Modeled carbon uptake by photosynthesis. This measures vegetation activity, not the percentage of ground covered by vegetation."
+  },
+  {
+    "system": "hydrosphere",
+    "previousVariable": "Wave height",
+    "variable": "Sea surface temperature anomaly",
+    "layer": "GHRSST_L4_MUR_Sea_Surface_Temperature_Anomalies",
+    "provider": "NASA GHRSST / MUR",
+    "reason": "Sea surface temperature departure from the product’s climatology. Positive values indicate warmer water than its reference, not greater wave height."
+  }
+]

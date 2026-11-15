@@ -1,0 +1,1047 @@
+{
+  "checkedAt": "2026-11-15T16:32:37.076724+00:00",
+  "method": "Sequential point-extraction audit; maps and numerical histories evaluated independently.",
+  "results": [
+    {
+      "sphere": "atmosphere",
+      "id": "T2M",
+      "name": "Air temperature",
+      "checkedAt": "2026-11-15T14:38:18.864823+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "T2M",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "C",
+      "first": {
+        "date": "2024-01-01",
+        "value": 12.96
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 21.67
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "PS",
+      "name": "Atmospheric pressure",
+      "checkedAt": "2026-11-15T14:38:19.391349+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "PS",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "kPa",
+      "first": {
+        "date": "2024-01-01",
+        "value": 101.57
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 100.66
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PS&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "PRECTOTCORR",
+      "name": "Precipitation",
+      "checkedAt": "2026-11-15T14:38:19.903778+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "PRECTOTCORR",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "mm/day",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.71
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 0.01
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "TQV",
+      "name": "Water vapor",
+      "checkedAt": "2026-11-15T14:38:20.379369+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "TQV",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "kg m-2",
+      "first": {
+        "date": "2024-01-01",
+        "value": 20.11
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 25.52
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=TQV&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "OZONE",
+      "name": "Total-column ozone",
+      "checkedAt": "2026-11-15T14:38:20.860514+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "OZONE",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 3,
+      "validSamples": 3,
+      "unit": "DU",
+      "first": {
+        "date": "2024-01-01",
+        "value": 286
+      },
+      "last": {
+        "date": "2024-03-01",
+        "value": 298
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "KNMI / TEMIS MSR2",
+      "sourceUrl": "https://temis.pmc.knmi.cloud/protocols/O3global.php"
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "CO",
+      "name": "Carbon monoxide",
+      "checkedAt": "2026-11-15T14:38:21.557783+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "CO",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "no_numerical_adapter",
+      "reason": "Map imagery does not supply numerical point history. A numerical source is required."
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "CH4",
+      "name": "Methane",
+      "checkedAt": "2026-11-15T14:38:21.558030+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "CH4",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "no_numerical_adapter",
+      "reason": "Map imagery does not supply numerical point history. A numerical source is required."
+    },
+    {
+      "sphere": "atmosphere",
+      "id": "ALLSKY_SFC_SW_DWN",
+      "name": "Solar radiation",
+      "checkedAt": "2026-11-15T14:38:21.558474+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "ALLSKY_SFC_SW_DWN",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "MJ/m^2/day",
+      "first": {
+        "date": "2024-01-01",
+        "value": 8.2
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 12.63
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=ALLSKY_SFC_SW_DWN&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "DISPLACEMENT",
+      "name": "Ground displacement",
+      "checkedAt": "2026-11-15T14:38:21.946354+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "DISPLACEMENT",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "no_numerical_adapter",
+      "reason": "Map imagery is connected, but no scientific point-values adapter is implemented. Static composites cannot supply a temporal trend."
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "SEA_ICE",
+      "name": "Sea ice concentration",
+      "checkedAt": "2026-11-15T14:38:21.947573+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 78,
+        "lon": -20,
+        "variable": "SEA_ICE",
+        "start": "2024-03-01",
+        "end": "2024-03-03",
+        "resolution": "native",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 3,
+      "validSamples": 3,
+      "unit": "%",
+      "first": {
+        "date": "2024-03-01",
+        "value": 97.0
+      },
+      "last": {
+        "date": "2024-03-03",
+        "value": 99.0
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA JPL MUR · NOAA ERDDAP",
+      "sourceUrl": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.html"
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "SWE",
+      "name": "Snow water equivalent",
+      "checkedAt": "2026-11-15T14:45:58.561168+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 67,
+        "lon": 25,
+        "variable": "SWE",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "provider_queue_required",
+      "reason": "AppEEARS profile requires a queued extraction; not a verified numerical result. Existing tasks are inspected separately."
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "FREEZE_THAW",
+      "name": "Freeze/thaw state",
+      "checkedAt": "2026-11-15T14:45:58.561671+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 67,
+        "lon": 25,
+        "variable": "FREEZE_THAW",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "provider_queue_required",
+      "reason": "AppEEARS profile requires a queued extraction; not a verified numerical result. Existing tasks are inspected separately."
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "ICE_TEMP",
+      "name": "Ice surface temperature",
+      "checkedAt": "2026-11-15T14:45:58.563500+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 67,
+        "lon": 25,
+        "variable": "ICE_TEMP",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "no_numerical_adapter",
+      "reason": "Map imagery does not supply numerical point history. A numerical source is required."
+    },
+    {
+      "sphere": "biosphere",
+      "id": "BIOMASS",
+      "name": "Biomass",
+      "checkedAt": "2026-11-15T14:45:58.570827+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "BIOMASS",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "no_numerical_adapter",
+      "reason": "Map imagery is connected, but no scientific point-values adapter is implemented. Static composites cannot supply a temporal trend."
+    },
+    {
+      "sphere": "biosphere",
+      "id": "LST",
+      "name": "Land surface temperature",
+      "checkedAt": "2026-11-15T15:47:23.883821+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "LST",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 12,
+      "validSamples": 10,
+      "unit": "°C",
+      "first": {
+        "date": "2024-01-01",
+        "value": 15.230000000000018,
+        "quality": 81
+      },
+      "last": {
+        "date": "2024-03-29",
+        "value": 32.370000000000005,
+        "quality": 81
+      },
+      "analysisAvailable": false,
+      "analysisError": "At least three valid, sufficiently complete periods are needed. Expand the range or choose a finer supported aggregation.",
+      "source": "NASA ORNL TESViS · MOD11A2",
+      "sourceUrl": "https://modis.ornl.gov/data/modis_webservice.html"
+    },
+    {
+      "sphere": "biosphere",
+      "id": "NDVI",
+      "name": "Vegetation index (NDVI)",
+      "checkedAt": "2026-11-15T15:47:52.194276+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "NDVI",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 6,
+      "validSamples": 3,
+      "unit": "NDVI ratio - No units",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.23120000000000002,
+        "quality": 1
+      },
+      "last": {
+        "date": "2024-02-02",
+        "value": 0.1466,
+        "quality": 1
+      },
+      "analysisAvailable": false,
+      "analysisError": "At least three valid, sufficiently complete periods are needed. Expand the range or choose a finer supported aggregation.",
+      "source": "NASA ORNL TESViS · MOD13Q1",
+      "sourceUrl": "https://modis.ornl.gov/data/modis_webservice.html"
+    },
+    {
+      "sphere": "biosphere",
+      "id": "LAND_COVER",
+      "name": "Land cover",
+      "checkedAt": "2026-11-15T15:48:18.466756+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "LAND_COVER",
+        "start": "2021-01-01",
+        "end": "2023-12-31",
+        "resolution": "annual",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 3,
+      "validSamples": 3,
+      "unit": "class",
+      "first": {
+        "date": "2021-01-01",
+        "value": 13.0,
+        "quality": null
+      },
+      "last": {
+        "date": "2023-01-01",
+        "value": 13.0,
+        "quality": null
+      },
+      "analysisAvailable": false,
+      "analysisError": "3 valid land-cover observations; 0 changes between observed classes. Land-cover class numbers are categories, so a linear slope or p-value would be misleading.",
+      "source": "NASA ORNL TESViS · MCD12Q1",
+      "sourceUrl": "https://modis.ornl.gov/data/modis_webservice.html"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "ALBEDO",
+      "name": "Surface albedo",
+      "checkedAt": "2026-11-15T15:48:27.454233+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "ALBEDO",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "dimensionless",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.13
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 0.15
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=ALLSKY_SRF_ALB&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "SOIL_TEMPERATURE",
+      "name": "Soil temperature",
+      "checkedAt": "2026-11-15T15:48:27.858823+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "SOIL_TEMPERATURE",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "C",
+      "first": {
+        "date": "2024-01-01",
+        "value": 12.61
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 20.46
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=TSOIL1&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "SST",
+      "name": "Sea surface temperature",
+      "checkedAt": "2026-11-15T15:48:28.327064+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 25,
+        "lon": -60,
+        "variable": "SST",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 3,
+      "validSamples": 3,
+      "unit": "°C",
+      "first": {
+        "date": "2024-01-01",
+        "value": 25.318756
+      },
+      "last": {
+        "date": "2024-03-01",
+        "value": 24.23523
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA JPL MUR · NOAA ERDDAP",
+      "sourceUrl": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41mday.html"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "SST_ANOMALY",
+      "name": "Sea surface temperature anomaly",
+      "checkedAt": "2026-11-15T15:48:29.866773+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 25,
+        "lon": -60,
+        "variable": "SST_ANOMALY",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 3,
+      "validSamples": 3,
+      "unit": "°C",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.69854844
+      },
+      "last": {
+        "date": "2024-03-01",
+        "value": 0.3288065
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA JPL MUR · NOAA ERDDAP",
+      "sourceUrl": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41anommday.html"
+    },
+    {
+      "sphere": "biosphere",
+      "id": "GPP",
+      "name": "Gross primary productivity",
+      "checkedAt": "2026-11-15T16:01:43.170868+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 35.958767,
+        "lon": -84.287433,
+        "variable": "GPP",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 12,
+      "validSamples": 10,
+      "unit": "g C/m²/day",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.475,
+        "quality": 16
+      },
+      "last": {
+        "date": "2024-03-29",
+        "value": 3.6875000000000004,
+        "quality": 0
+      },
+      "analysisAvailable": false,
+      "analysisError": "At least three valid, sufficiently complete periods are needed. Expand the range or choose a finer supported aggregation.",
+      "source": "NASA ORNL TESViS · MOD17A2HGF",
+      "sourceUrl": "https://modis.ornl.gov/data/modis_webservice.html"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "ELEVATION",
+      "name": "Surface elevation",
+      "checkedAt": "2026-11-15T16:03:19.346526+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "ELEVATION",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 1,
+      "validSamples": 1,
+      "unit": "m",
+      "first": {
+        "date": "2000-02-01",
+        "value": 24.0
+      },
+      "last": {
+        "date": "2000-02-01",
+        "value": 24.0
+      },
+      "analysisAvailable": false,
+      "analysisError": "This source is a static reference value, not repeated observations over time. A temporal slope or significance test cannot be calculated from it.",
+      "source": "NASA SRTM · Open Topo Data",
+      "sourceUrl": "https://www.opentopodata.org/datasets/srtm/"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "GROUNDWATER",
+      "name": "Groundwater storage anomaly",
+      "checkedAt": "2026-11-15T16:03:19.696947+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "GROUNDWATER",
+        "start": "2003-01-01",
+        "end": "2022-12-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 209,
+      "validSamples": 208,
+      "unit": "mm water equivalent",
+      "first": {
+        "date": "2003-01-01",
+        "value": 46.62629563377127,
+        "uncertainty": 7.408005367008003
+      },
+      "last": {
+        "date": "2022-12-01",
+        "value": -22.824521715722575,
+        "uncertainty": 5.694123207162149
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "GFZ G3P · regional mean: Coastal lowlands",
+      "sourceUrl": "https://gravis.gfz.de/gws"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "SALINITY",
+      "name": "Sea surface salinity",
+      "checkedAt": "2026-11-15T16:05:54.838981+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 25,
+        "lon": -60,
+        "variable": "SALINITY",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 24,
+      "validSamples": 22,
+      "unit": "PSU",
+      "first": {
+        "date": "2024-01-01",
+        "value": 36.73053
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 37.644756
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NOAA CoastWatch · coastwatchSMOSv662SSS3day",
+      "sourceUrl": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/coastwatchSMOSv662SSS3day.html"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "SEA_LEVEL",
+      "name": "Sea level",
+      "checkedAt": "2026-11-15T16:05:58.878181+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 25,
+        "lon": -60,
+        "variable": "SEA_LEVEL",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "m",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.051500000000000004
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 0.0729
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NOAA CoastWatch · nesdisSSH1day",
+      "sourceUrl": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisSSH1day.html"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "CURRENTS",
+      "name": "Ocean currents",
+      "checkedAt": "2026-11-15T16:06:05.638514+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 25,
+        "lon": -60,
+        "variable": "CURRENTS",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "m/s",
+      "first": {
+        "date": "2024-01-01",
+        "value": -0.042
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": -0.016900000000000002
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NOAA CoastWatch · nesdisSSH1day",
+      "sourceUrl": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisSSH1day.html"
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "ICE_MASS",
+      "name": "Glacier mass anomaly",
+      "checkedAt": "2026-11-15T16:08:43.025425+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 61,
+        "lon": -145,
+        "variable": "ICE_MASS",
+        "start": "2003-01-01",
+        "end": "2022-12-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 240,
+      "validSamples": 240,
+      "unit": "mm water equivalent",
+      "first": {
+        "date": "2003-01-01",
+        "value": 76.67669163565367,
+        "uncertainty": 1.4847976566597072
+      },
+      "last": {
+        "date": "2022-12-01",
+        "value": -118.39771311878094,
+        "uncertainty": 1.3338700479655226
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "GFZ G3P · regional mean: North America-Dfc,ET-1",
+      "sourceUrl": "https://gravis.gfz.de/gws"
+    },
+    {
+      "sphere": "hydrosphere",
+      "id": "EVAPORATION",
+      "name": "Land evapotranspiration",
+      "checkedAt": "2026-11-15T16:11:21.973922+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "EVAPORATION",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "mm/day",
+      "first": {
+        "date": "2024-01-01",
+        "value": 1.08
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 3.61
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=EVLAND&community=AG&latitude=29.7604&longitude=-95.3698&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "SNOW",
+      "name": "Snow cover",
+      "checkedAt": "2026-11-15T16:11:22.221245+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 67,
+        "lon": 25,
+        "variable": "SNOW",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "% land area",
+      "first": {
+        "date": "2024-01-01",
+        "value": 100.0
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 100.0
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA POWER",
+      "sourceUrl": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=FRSNO&community=AG&latitude=67&longitude=25&start=20240101&end=20240331&format=JSON&time-standard=UTC"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "SURFACE_MOISTURE",
+      "name": "Surface soil moisture",
+      "checkedAt": "2026-11-15T16:16:56.522085+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "SURFACE_MOISTURE",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "m³/m³",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.417
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 0.391
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "Copernicus ERA5-Land · Open-Meteo",
+      "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "ROOT_MOISTURE",
+      "name": "Root-zone soil moisture",
+      "checkedAt": "2026-11-15T16:16:57.238857+00:00",
+      "numericalConnected": true,
+      "selection": {
+        "lat": 29.7604,
+        "lon": -95.3698,
+        "variable": "ROOT_MOISTURE",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 91,
+      "validSamples": 91,
+      "unit": "m³/m³",
+      "first": {
+        "date": "2024-01-01",
+        "value": 0.419
+      },
+      "last": {
+        "date": "2024-03-31",
+        "value": 0.442
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "Copernicus ERA5-Land · Open-Meteo",
+      "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api"
+    },
+    {
+      "sphere": "geosphere",
+      "id": "SOIL",
+      "name": "Soil composition",
+      "checkedAt": "2026-11-15T16:19:05.890971+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 35.958767,
+        "lon": -84.287433,
+        "variable": "SOIL",
+        "start": "2024-01-01",
+        "end": "2024-03-31",
+        "resolution": "monthly",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 1,
+      "validSamples": 1,
+      "unit": "g/kg",
+      "first": {
+        "date": "2020-01-01",
+        "value": 277.0
+      },
+      "last": {
+        "date": "2020-01-01",
+        "value": 277.0
+      },
+      "analysisAvailable": false,
+      "analysisError": "This source is a static reference value, not repeated observations over time. A temporal slope or significance test cannot be calculated from it.",
+      "source": "ISRIC SoilGrids 2.0 · clay 0–5 cm",
+      "sourceUrl": "https://www.isric.org/explore/soilgrids"
+    },
+    {
+      "sphere": "biosphere",
+      "id": "FIRE",
+      "name": "Fire intensity",
+      "checkedAt": "2026-11-15T16:27:37.795588+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": -19.08399,
+        "lon": 122.30428,
+        "variable": "FIRE",
+        "start": "2026-11-08",
+        "end": "2026-11-15",
+        "resolution": "native",
+        "deseasonalize": false,
+        "detectionId": "10d3955bab1793a751e6ed63"
+      },
+      "status": "values_verified",
+      "samples": 1,
+      "validSamples": 1,
+      "unit": "MW",
+      "first": {
+        "date": "2026-11-15T06:14:00+00:00",
+        "value": 130.65285714285713,
+        "detections": 7
+      },
+      "last": {
+        "date": "2026-11-15T06:14:00+00:00",
+        "value": 130.65285714285713,
+        "detections": 7
+      },
+      "analysisAvailable": false,
+      "analysisError": "At least three valid, sufficiently complete periods are needed. Expand the range or choose a finer supported aggregation.",
+      "source": "NASA FIRMS · NOAA-20 VIIRS detections",
+      "sourceUrl": "https://firms.modaps.eosdis.nasa.gov/active_fire/"
+    },
+    {
+      "sphere": "cryosphere",
+      "id": "GLACIER_VELOCITY",
+      "name": "Glacier velocity",
+      "checkedAt": "2026-11-15T16:32:32.857569+00:00",
+      "numericalConnected": false,
+      "selection": {
+        "lat": 69.166,
+        "lon": -49.8,
+        "variable": "GLACIER_VELOCITY",
+        "start": "2020-01-01",
+        "end": "2024-12-31",
+        "resolution": "annual",
+        "deseasonalize": false
+      },
+      "status": "values_verified",
+      "samples": 5,
+      "validSamples": 5,
+      "unit": "m/year",
+      "first": {
+        "date": "2020-01-01",
+        "value": 11320.12109375,
+        "uncertainty": 88.0,
+        "imagePairs": 97
+      },
+      "last": {
+        "date": "2024-01-01",
+        "value": 10750.5908203125,
+        "uncertainty": 292.0,
+        "imagePairs": 95
+      },
+      "analysisAvailable": true,
+      "analysisError": null,
+      "source": "NASA ITS_LIVE · annual composites",
+      "sourceUrl": "https://its-live.jpl.nasa.gov/"
+    }
+  ]
+}

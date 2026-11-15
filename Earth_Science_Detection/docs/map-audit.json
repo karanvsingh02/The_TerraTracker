@@ -1,0 +1,492 @@
+[
+  {
+    "id": "T2M",
+    "variable": "Air temperature",
+    "date": "2024-07-01",
+    "provider": "MERRA-2",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MERRA2_2m_Air_Temperature_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "PS",
+    "variable": "Atmospheric pressure",
+    "date": "2024-07-01",
+    "provider": "MERRA-2",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MERRA2_Surface_Pressure_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "PRECTOTCORR",
+    "variable": "Precipitation",
+    "date": "2024-07-01",
+    "provider": "GPM / IMERG",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.17697906494140625,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=IMERG_Precipitation_Rate&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "TQV",
+    "variable": "Water vapor",
+    "date": "2024-07-01",
+    "provider": "MERRA-2",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MERRA2_Total_Precipitable_Water_Vapor_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "OZONE",
+    "variable": "Ozone concentration",
+    "date": "2024-07-01",
+    "provider": "Aura / OMI",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.6993484497070312,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=OMI_Ozone_TOMS_Total_Column&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "CO",
+    "variable": "Carbon monoxide",
+    "date": "2024-07-01",
+    "provider": "NASA Aqua / AIRS",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.9992446899414062,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Monthly_Day&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "CH4",
+    "variable": "Methane",
+    "date": "2024-07-01",
+    "provider": "Aqua / AIRS",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=AIRS_L3_Methane_400hPa_Volume_Mixing_Ratio_Monthly_Day&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "ALLSKY_SFC_SW_DWN",
+    "variable": "Solar radiation",
+    "date": "2021-07-01",
+    "provider": "CERES",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=CERES_Combined_Surface_Shortwave_Flux_Down_All_Sky_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2021-07-01"
+  },
+  {
+    "id": "ELEVATION",
+    "variable": "Surface elevation",
+    "date": null,
+    "provider": "ASTER GDEM",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=ASTER_GDEM_Color_Shaded_Relief&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85"
+  },
+  {
+    "id": "SURFACE_MOISTURE",
+    "variable": "Surface soil moisture",
+    "date": "2024-07-01",
+    "provider": "NASA SMAP",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.2674713134765625,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=SMAP_L4_Analyzed_Surface_Soil_Moisture&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "DISPLACEMENT",
+    "variable": "Ground displacement",
+    "date": null,
+    "provider": "NASA JPL / ARIA",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.6960906982421875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gis.earthdata.nasa.gov/portal/services/DISASTERS_202302_EARTHQUAKE_TURKIYE/2302_opera_surf_disp/ImageServer/WMSServer?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=2302_opera_surf_disp&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=34.4%2C35.5%2C39%2C39"
+  },
+  {
+    "id": "SOIL",
+    "variable": "Soil composition",
+    "date": null,
+    "provider": "ISRIC / SoilGrids",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.272552490234375,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://maps.isric.org/mapserv?map=/map/clay.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=clay_0-5cm_mean&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85"
+  },
+  {
+    "id": "ALBEDO",
+    "variable": "Surface albedo",
+    "date": "2024-07-01",
+    "provider": "NASA MERRA-2",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.8465042114257812,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MERRA2_Surface_Albedo_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "SOIL_TEMPERATURE",
+    "variable": "Soil temperature",
+    "date": "2024-07-01",
+    "provider": "NASA SMAP",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.2674713134765625,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=SMAP_L4_Soil_Temperature_Layer_1&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "ROOT_MOISTURE",
+    "variable": "Root-zone soil moisture",
+    "date": "2024-07-01",
+    "provider": "NASA SMAP",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.2674713134765625,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=SMAP_L4_Analyzed_Root_Zone_Soil_Moisture&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "SEA_ICE",
+    "variable": "Sea ice concentration",
+    "date": "2024-07-01",
+    "provider": "GHRSST / MUR",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.10462188720703125,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=GHRSST_L4_MUR_Sea_Ice_Concentration&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "SWE",
+    "variable": "Snow water equivalent",
+    "date": "2024-07-01",
+    "provider": "NASA GIBS / GCOM-W1 AMSR2",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.00826263427734375,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=AMSRU2_Snow_Water_Equivalent_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "FREEZE_THAW",
+    "variable": "Freeze/thaw state",
+    "date": "2024-07-01",
+    "provider": "NASA SMAP",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.165496826171875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=SMAP_L3_Passive_Enhanced_Day_Freeze_Thaw&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "ICE_MASS",
+    "variable": "Glacier mass anomaly",
+    "date": "2023-09-16",
+    "provider": "GFZ / GravIS G3P v1.12",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.04347515106201172,
+    "size": [
+      1024,
+      1024
+    ],
+    "requestUrl": "http://127.0.0.1:8000/api/maps/gravis/glac/2023-09-16.png"
+  },
+  {
+    "id": "GLACIER_VELOCITY",
+    "variable": "Glacier velocity",
+    "date": null,
+    "provider": "NASA MEaSUREs / ITS_LIVE",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.1222686767578125,
+    "size": [
+      256,
+      256
+    ],
+    "requestUrl": "https://its-live-data.s3.us-west-2.amazonaws.com/vel_web_tiles/3857/1/0/0.png"
+  },
+  {
+    "id": "SNOW",
+    "variable": "Snow cover",
+    "date": "2024-07-01",
+    "provider": "MODIS / Terra",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.0075531005859375,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MODIS_Terra_NDSI_Snow_Cover&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "ICE_TEMP",
+    "variable": "Ice surface temperature",
+    "date": "2024-07-01",
+    "provider": "MODIS / Terra",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.040924072265625,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MODIS_Terra_L3_Ice_Surface_Temp_Daily_Day&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "LST",
+    "variable": "Land surface temperature",
+    "date": "2024-07-01",
+    "provider": "MODIS / Terra",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.32874298095703125,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MODIS_Terra_L3_Land_Surface_Temp_Monthly_Day&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "NDVI",
+    "variable": "Vegetation index (NDVI)",
+    "date": "2024-07-01",
+    "provider": "MODIS / Terra",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.2401275634765625,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MODIS_Terra_L3_NDVI_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "GPP",
+    "variable": "Gross primary productivity",
+    "date": "2024-07-01",
+    "provider": "NASA SMAP",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.235870361328125,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=SMAP_L4_Mean_Gross_Primary_Productivity&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "BIOMASS",
+    "variable": "Biomass",
+    "date": "2019-04-18",
+    "provider": "GEDI",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.17498779296875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=GEDI_ISS_L4B_Aboveground_Biomass_Density_Mean_201904-202303&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2019-04-18"
+  },
+  {
+    "id": "LAND_COVER",
+    "variable": "Land cover",
+    "date": "2024-01-01",
+    "provider": "MODIS",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MODIS_Combined_L3_IGBP_Land_Cover_Type_Annual&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-01-01"
+  },
+  {
+    "id": "FIRE",
+    "variable": "Fire intensity",
+    "date": "2025-11-19T01:15:00Z",
+    "provider": "EUMETSAT / LSA SAF",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.05290985107421875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://adaguc.lsasvcs.ipma.pt/adagucserver?dataset=MSG-FRP&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=FRP&STYLES=pointdata%2Fpoint&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2025-11-19T01%3A15%3A00Z"
+  },
+  {
+    "id": "SST",
+    "variable": "Sea surface temperature",
+    "date": "2024-07-01",
+    "provider": "GHRSST / MUR",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.5980682373046875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=GHRSST_L4_MUR_Sea_Surface_Temperature&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "SALINITY",
+    "variable": "Sea surface salinity",
+    "date": "2025-01-01",
+    "provider": "SMAP",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.5711212158203125,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=SMAP_L3_Sea_Surface_Salinity_CAP_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2025-01-01"
+  },
+  {
+    "id": "SEA_LEVEL",
+    "variable": "Sea level",
+    "date": "2019-01-22",
+    "provider": "JPL / MEaSUREs",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.596893310546875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=JPL_MEaSUREs_L4_Sea_Surface_Height_Anomalies&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2019-01-22"
+  },
+  {
+    "id": "CURRENTS",
+    "variable": "Ocean currents",
+    "date": "2024-07-07",
+    "provider": "OSCAR",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.5939483642578125,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=OSCAR_Sea_Surface_Currents_Zonal&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-07"
+  },
+  {
+    "id": "SST_ANOMALY",
+    "variable": "Sea surface temperature anomaly",
+    "date": "2024-07-01",
+    "provider": "NASA GHRSST / MUR",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.5980682373046875,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=GHRSST_L4_MUR_Sea_Surface_Temperature_Anomalies&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "EVAPORATION",
+    "variable": "Evaporation",
+    "date": "2024-07-01",
+    "provider": "MERRA-2",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 1.0,
+    "size": [
+      512,
+      256
+    ],
+    "requestUrl": "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MERRA2_Evaporation_from_Turbulence_Monthly&STYLES=&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=256&BBOX=-180%2C-85%2C180%2C85&TIME=2024-07-01"
+  },
+  {
+    "id": "GROUNDWATER",
+    "variable": "Groundwater storage anomaly",
+    "date": "2023-09-16",
+    "provider": "GFZ / GravIS G3P v1.12",
+    "status": "image_received",
+    "contentType": "image/png",
+    "nontransparentPixelFraction": 0.18840980529785156,
+    "size": [
+      1024,
+      1024
+    ],
+    "requestUrl": "http://127.0.0.1:8000/api/maps/gravis/gwsa/2023-09-16.png"
+  }
+]

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5ecdf">
+  <meta name="description" content="Explore Earth's connected systems with NASA imagery and authentic historical measurements.">
+  <title>Earth Science System Tracker</title>
+  <link rel="stylesheet" href="vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="vendor/maplibre-gl.js"></script>
+</head>
+<body>
+  <!-- Shared line icons, kept in the page so the design needs no icon service. -->
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="globe" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><ellipse cx="16" cy="16" rx="6" ry="13"/><path d="M3 16h26M6 8q10 6 20 0M6 24q10-6 20 0"/></symbol>
+    <symbol id="air" viewBox="0 0 24 24"><path d="M2 7h13c6 0 5-6 2-4M2 12h18M2 17h10c6 0 5 6 2 4M4 4l3 1M5 20l3-1"/></symbol>
+    <symbol id="mountain" viewBox="0 0 24 24"><path d="M2 21 10 5l4 8 3-5 6 13ZM7 11l3 2 2-3M15 4l2-2 2 3"/></symbol>
+    <symbol id="water" viewBox="0 0 24 24"><path d="M12 2S4 12 4 16a8 8 0 0 0 16 0c0-4-8-14-8-14Z"/></symbol>
+    <symbol id="leaf" viewBox="0 0 24 24"><path d="M21 3C8 2 2 8 4 15s15 7 17-12ZM3 22 16 9"/></symbol>
+    <symbol id="snow" viewBox="0 0 24 24"><path d="M12 2v20M3 7l18 10M3 17 21 7M8 4l4 3 4-3M8 20l4-3 4 3M3 11l4-2-1-5M18 20l-1-5 4-2M3 13l4 2-1 5M18 4l-1 5 4 2"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="layers" viewBox="0 0 24 24"><path d="m3 8 9-5 9 5-9 5ZM3 12l9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="chart" viewBox="0 0 24 24"><path d="M3 3v18h19M5 16l5-6 4 3 7-9M17 4h4v4"/></symbol>
+    <symbol id="external" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="#0B3D91"/><ellipse cx="60" cy="60" rx="54" ry="18" transform="rotate(-25 60 60)" fill="none" stroke="#FFFFFF" stroke-width="2.5"/><path d="M22 68L58 24l8 32 38-14-36 24-14-22Z" fill="#FC3D21"/><text x="60" y="67" font-family="Arial Black,Impact,sans-serif" font-weight="900" font-size="23" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">NASA</text></symbol>
+    <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></symbol>
+  </defs></svg>
+
+  <header class="site-header">
+    <div><h1>TerraTracker</h1><p>Explore Earth Systems through NASA Data</p></div>
+    <div><a class="source-link" href="https://www.earthdata.nasa.gov/" target="_blank" rel="noopener">Data from<span><img src = "bg-removebg-preview.png" width="60" height ="60"></span></a></div>
+  </header>
+
+  <div class="dashboard-window">
+  <nav class="system-tabs" aria-label="Earth systems">
+    <span class="system-tab-highlight" aria-hidden="true"></span>
+    <a class="system-tab active" href="?system=atmosphere" data-system="atmosphere" aria-current="page"><svg><use href="#air"/></svg>Atmosphere</a>
+    <a class="system-tab" href="?system=geosphere" data-system="geosphere"><svg><use href="#mountain"/></svg>Geosphere</a>
+    <a class="system-tab" href="?system=hydrosphere" data-system="hydrosphere"><svg><use href="#water"/></svg>Hydrosphere</a>
+    <a class="system-tab" href="?system=biosphere" data-system="biosphere"><svg><use href="#leaf"/></svg>Biosphere</a>
+    <a class="system-tab" href="?system=cryosphere" data-system="cryosphere"><svg><use href="#snow"/></svg>Cryosphere</a>
+  </nav>
+
+  <main class="workspace" id="workspace">
+    <!-- This is a contextual map inspector, not a navigation sidebar. -->
+    <section class="inspector" aria-label="Selected point and scientific analysis">
+      <div class="inspector-scroll">
+        <header class="point-header"><svg class="icon"><use href="#pin"/></svg><div><h2 id="point-title">Click point to get started</h2><p id="point-subtitle" font-weight="3">Select anywhere on the map to investigate.</p></div><button id="clear-point" class="icon-button" aria-label="Clear selected point" hidden>×</button></header>
+        <section class="inspector-section">
+          <h3><svg class="icon"><use href="#layers"/></svg>Selected Variable</h3>
+          <label class="sr-only" for="variable">Numerical point variable</label>
+          <select id="variable"><option value="T2M">Air temperature</option><option value="PS">Atmospheric pressure</option><option value="PRECTOTCORR">Precipitation</option><option value="TQV">Water vapor</option><option value="OZONE">Ozone concentration</option><option value="CO">Carbon monoxide</option><option value="CH4">Methane</option><option value="ALLSKY_SFC_SW_DWN">Solar radiation</option></select>
+          <p class="helper" id="variable-description">Near-surface air temperature from NASA POWER.</p>
+          <div class="measurement-card"><div class="primary-reading"><span id="reading-name">Air temperature</span><strong id="reading-value">—</strong><small id="reading-unit">°C · no data retrieved</small></div><div class="reading-details"><span>Source<b id="reading-source">NASA POWER</b></span><span>Observation<b id="reading-date">Not retrieved</b></span><span>Coverage<b id="reading-coverage">—</b></span></div></div>
+          <p class="helper" id="point-hint">Choose a point to retrieve authentic measurements. Map imagery and point data are separate products.</p>
+        </section>
+        <section class="inspector-section" id="investigation-controls">
+          <details id="query-details" open><summary>Investigation settings <span>⌄</span></summary>
+            <form id="controls"><div class="form-grid"><label>Latitude<input name="lat" type="number" min="-90" max="90" step="any" value="29.7604" required></label><label>Longitude<input name="lon" type="number" min="-180" max="180" step="any" value="-95.3698" required></label><label>From<input name="start" type="date" min="1981-01-01" value="2001-01-01" required></label><label>To<input name="end" type="date" value="2024-12-31" required></label></div><label class="field-label" for="resolution">Time resolution</label><select id="resolution" name="resolution"><option value="annual">Annual</option><option value="monthly">Monthly</option><option value="daily">Daily</option><option value="native">Original observations</option></select><label class="checkbox"><input type="checkbox" name="deseasonalize">Remove monthly seasonal cycle</label><button class="primary-button" id="retrieve" type="submit">Retrieve & analyze <span>↗</span></button></form>
+          </details>
+          <p id="status" class="status" role="status" aria-live="polite">Ready when you are.</p>
+        </section>
+        <section class="inspector-section chart-section"><h3><svg class="icon"><use href="#chart"/></svg><span id="chart-title">Time Series</span></h3><p id="chart-period" class="section-subtitle">Your selected period will appear here</p><p id="range-note" class="helper" aria-live="polite"></p><div id="chart-container" class="chart-placeholder"><svg class="icon"><use href="#chart"/></svg><p>A point. A period. A new perspective.</p><small>Retrieve data to reveal the historical record.</small></div><div class="export-actions"><button id="export-csv" disabled>Export CSV ↗</button><button id="export-chart" disabled>Save chart ↗</button></div></section>
+        <section class="inspector-section" id="trend-section" hidden><h3>Trend analysis</h3><div id="trend-results"></div></section>
+        <section class="inspector-section source-section"><h3><span class="info-icon">i</span>Data Source</h3><a id="dataset-link" href="https://power.larc.nasa.gov/" target="_blank" rel="noopener"><span id="dataset-name">NASA POWER · daily point data</span><svg class="icon"><use href="#external"/></svg></a><p id="source-observation">Observation: not retrieved</p><p id="source-publication">Provider publication time: not supplied</p><p id="source-retrieved">Retrieved: not yet</p><span class="freshness" id="freshness"><i></i>Historical observations</span><p class="helper" id="science-note">No measurements are simulated. Trend significance does not establish causation.</p></section>
+      </div>
+      <div class="scroll-hint">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="map-panel" aria-label="Interactive two-dimensional Earth map">
+      <div id="earth-map" aria-label="Select a point on the world map"></div>
+      <div class="map-toolbar"><span class="imagery-period" id="imagery-period"></span><div class="provider-chip" id="map-provider">MERRA-2</div></div>
+      <div class="map-buttons"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="recenter" aria-label="Center map on selected point"><svg class="icon"><use href="#target"/></svg></button></div>
+      <div class="map-message" id="map-message" role="status">Loading NASA imagery…</div><button type="button" class="retry-map" id="retry-map">Reload map ↻</button>
+      <div class="map-bottom"><label class="imagery-date"><svg class="icon"><use href="#clock"/></svg><span id="imagery-date-label">Imagery date</span><input id="imagery-date" type="date" value="2024-07-01" aria-label="NASA imagery date"></label><section class="map-legend"><h3 id="legend-title">Aerosol optical depth · unitless</h3><div class="legend-scroll"><img id="legend-image" src="https://gibs.earthdata.nasa.gov/legends/MODIS_VIIRS_AOD_H.png" alt="NASA aerosol optical depth color legend"><div id="legend-custom" hidden></div></div><p id="legend-note">NASA GIBS imagery · not numerical point data</p></section></div>
+    </section>
+  </main>
+  </div>
+  <footer class="page-footer"><span><i></i> NASA imagery. Authentic observations. One connected planet.</span><span id="footer-system">ATMOSPHERE EXPLORER <b>01 / 05</b></span></footer>
+  <noscript><p class="noscript">JavaScript is required for the interactive map and data retrieval.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
