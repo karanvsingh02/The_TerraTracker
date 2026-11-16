@@ -1504,7 +1504,7 @@ export const systems = {
         "unit": "°C",
         "layer": "GHRSST_L4_MUR_Sea_Surface_Temperature",
         "provider": "GHRSST / MUR",
-        "description": "Numerical extraction is not connected for this variable.",
+        "description": "Daily sea temperature history from NASA Harmony MUR25 v4.2 (0.25°). The map uses finer MUR v4.1 imagery. Select an ocean point; masked or land cells have no temperature value.",
         "point": true,
         "static": false,
         "imagery": "Sea surface temperature",
@@ -1512,8 +1512,9 @@ export const systems = {
         "legendTitle": "Sea surface temperature · °C",
         "monthly": false,
         "coverage": "2002-06-01/2021-02-19/P1D,2021-02-22/2022-11-08/P1D,2022-11-10/2023-02-01/P1D,2023-02-04/2023-04-21/P1D,2023-04-23/2024-07-01/P1D,2024-07-03/2026-11-13/P1D",
-        "dataProvider": "NASA JPL MUR · NOAA ERDDAP",
-        "dataStart": "2002-06-01",
+        "dataProvider": "NASA JPL MUR25 v4.2 · Harmony",
+        "dataStart": "2002-09-01",
+        "dataUrl": "https://podaac.jpl.nasa.gov/dataset/MUR25-JPL-L4-GLOB-v04.2",
         "dataResolution": "daily"
       },
       {

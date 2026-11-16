@@ -1,4 +1,5 @@
 import {apiBase} from './api.js';
+import {playbackDelay} from './timelapse.js';
 // Provider imagery is visual context, never a numerical point measurement.
 const shorelineURL=new URL('../data/coastlines.geojson',import.meta.url).href;
 const lakeShoreURL=new URL('../data/lake-shores.geojson',import.meta.url).href;
@@ -36,7 +37,7 @@ export function createMap(onSelect){
  }
 
  if(!window.maplibregl){showMessage('Map library could not load. Coordinate entry is still available.');return null;}
- let map,marker,state=null,generation=0,probe=null,selectedPoint=null,firePopup=null;
+ let map,marker,state=null,generation=0,probe=null,selectedPoint=null,firePopup=null,transitionController=null;
  const ready=new Promise(resolve=>{
   const deadline=setTimeout(()=>{showMessage('The world map is taking too long to load. Check your connection and use Reload map.');resolve(false);},15000);deadline.unref?.();
   try{
@@ -82,6 +83,7 @@ export function createMap(onSelect){
   async setSystem(variable,date,{force=false}={}){
    const signature=JSON.stringify([variable.id,variable.layer,variable.endpoint,variable.tiles,variable.image,variable.points,date]);
    if(!force&&state?.signature===signature)return;
+   transitionController?.abort();
    const id=++generation;probe?.abort();firePopup?.remove();if(state)clearTimeout(state.deadline);
    if(!await ready||id!==generation)return;
    const previous=state;state=null;
@@ -101,6 +103,82 @@ export function createMap(onSelect){
     else map.addSource(key,{type:'raster',tiles:[tileURL(variable,date)],tileSize:256,minzoom:variable.minzoom??0,maxzoom:variable.maxzoom??8,attribution:variable.provider});
     map.addLayer({id:key,type:'raster',source:key,paint:{'raster-opacity':.9,'raster-fade-duration':250}},'coastline-outline');
    }catch(error){clearTimeout(current.deadline);current.failed=true;showMessage('Unable to open '+variable.name.toLowerCase()+' imagery. Use Reload map to try again.');}
+  },
+  async transitionTo(variable,date,signal){
+   transitionController?.abort();
+   const controller=new AbortController();transitionController=controller;
+   const cancel=()=>controller.abort();signal.addEventListener('abort',cancel,{once:true});
+   if(signal.aborted)cancel();
+   const signature=JSON.stringify([variable.id,variable.layer,variable.endpoint,variable.tiles,variable.image,variable.points,date]);
+   const id=++generation,key='science-'+id;
+   const previous=state;
+   let committed=false;
+   const remove=frame=>{if(map.getLayer(frame.key))map.removeLayer(frame.key);if(map.getSource(frame.key))map.removeSource(frame.key);};
+   try{
+    if(!await ready||controller.signal.aborted)return false;
+    if(previous?.signature===signature)return !previous.failed;
+    // Tiny nonzero opacity keeps MapLibre loading the off-screen buffer's tiles.
+    // The current layer remains fully visible until the next frame is ready.
+    if(variable.points){
+     map.addSource(key,{type:'geojson',data:apiBase()+variable.points.replace('{date}',date)});
+     map.addLayer({id:key,type:'circle',source:key,paint:{'circle-color':['interpolate',['linear'],['get','frp'],0,'#ffed8a',10,'#fec44f',50,'#fe9929',100,'#ec7014',150,'#cc4c02'],'circle-radius':['interpolate',['linear'],['zoom'],0,2.5,4,4,8,7],'circle-stroke-color':'#7d2f15','circle-stroke-width':.4,'circle-opacity':.00001,'circle-stroke-opacity':.00001}},'coastline-outline');
+    }else{
+     if(variable.image)map.addSource(key,{type:'image',url:apiBase()+variable.image.replace('{date}',date),coordinates:[[-180,85.0511287798],[180,85.0511287798],[180,-85.0511287798],[-180,-85.0511287798]]});
+     else map.addSource(key,{type:'raster',tiles:[tileURL(variable,date)],tileSize:256,minzoom:variable.minzoom??0,maxzoom:variable.maxzoom??8,attribution:variable.provider});
+     map.addLayer({id:key,type:'raster',source:key,paint:{'raster-opacity':.00001,'raster-fade-duration':0}},'coastline-outline');
+    }
+    const loaded=await new Promise(resolve=>{
+     const finish=value=>{clearTimeout(timeout);map.off('sourcedata',check);map.off('idle',check);map.off('error',failure);controller.signal.removeEventListener('abort',abort);resolve(value);};
+     const check=()=>{if(controller.signal.aborted||id!==generation)finish(false);else if(map.getSource(key)&&map.isSourceLoaded(key))finish(true);};
+     const failure=event=>{if(event.sourceId===key)finish(false);};
+     const abort=()=>finish(false);
+     const timeout=setTimeout(()=>finish(false),20000);
+     map.on('sourcedata',check);map.on('idle',check);map.on('error',failure);controller.signal.addEventListener('abort',abort,{once:true});check();
+    });
+    if(!loaded)return false;
+    await playbackDelay(600,controller.signal);
+    if(controller.signal.aborted||id!==generation)return false;
+    const duration=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:500;
+    const opacity=variable.points?'circle-opacity':'raster-opacity';
+    map.setPaintProperty(key,opacity+'-transition',{duration,delay:0});
+    map.setPaintProperty(key,opacity,.9);
+    if(previous&&map.getLayer(previous.key)){
+     const oldOpacity=previous.variable.points?'circle-opacity':'raster-opacity';
+     map.setPaintProperty(previous.key,oldOpacity+'-transition',{duration,delay:0});map.setPaintProperty(previous.key,oldOpacity,0);
+     if(previous.variable.points){map.setPaintProperty(previous.key,'circle-stroke-opacity-transition',{duration,delay:0});map.setPaintProperty(previous.key,'circle-stroke-opacity',0);}
+    }
+    if(variable.points){map.setPaintProperty(key,'circle-stroke-opacity-transition',{duration,delay:0});map.setPaintProperty(key,'circle-stroke-opacity',1);}
+    await playbackDelay(duration,controller.signal);
+    if(controller.signal.aborted||id!==generation)return false;
+    if(previous){clearTimeout(previous.deadline);remove(previous);}
+    probe?.abort();firePopup?.remove();
+    state={key,signature,variable,date,failed:false,checked:false,checking:false};committed=true;
+    checkView();
+    return true;
+   }catch(error){if(!controller.signal.aborted)showMessage('The next map frame could not load. The previous frame has been kept.');return false;}
+   finally{
+    signal.removeEventListener('abort',cancel);
+    if(!committed&&map){
+     remove({key});
+     if(state===previous&&previous&&map.getLayer(previous.key)){
+      const opacity=previous.variable.points?'circle-opacity':'raster-opacity';
+      map.setPaintProperty(previous.key,opacity+'-transition',{duration:0,delay:0});map.setPaintProperty(previous.key,opacity,.9);
+      if(previous.variable.points){map.setPaintProperty(previous.key,'circle-stroke-opacity-transition',{duration:0,delay:0});map.setPaintProperty(previous.key,'circle-stroke-opacity',1);}
+     }
+    }
+    if(transitionController===controller)transitionController=null;
+   }
+  },
+  waitForFrame(signal){
+   const frame=state;
+   if(!map||!frame||frame.failed||signal.aborted)return Promise.resolve(false);
+   return new Promise(resolve=>{
+    const finish=loaded=>{clearTimeout(timeout);map.off('idle',check);map.off('sourcedata',check);map.off('error',check);signal.removeEventListener('abort',cancel);resolve(loaded);};
+    const cancel=()=>finish(false);
+    const check=()=>{if(signal.aborted||state!==frame||frame.failed)finish(false);else if(map.isSourceLoaded(frame.key))finish(true);};
+    const timeout=setTimeout(()=>finish(false),20000);
+    map.on('idle',check);map.on('sourcedata',check);map.on('error',check);signal.addEventListener('abort',cancel,{once:true});check();
+   });
   },
   select(lat,lon){selectedPoint=[lat,lon];if(!map)return;map.stop?.();if(!marker){const el=document.createElement('div');el.innerHTML='<svg class="point-marker" viewBox="0 0 24 32"><path d="M22 11C22 20 12 30 12 30S2 20 2 11a10 10 0 1 1 20 0Z"/><circle cx="12" cy="11" r="3" fill="#f7ecd9" stroke="none"/></svg>';marker=new window.maplibregl.Marker({element:el,anchor:'bottom'});}marker.setLngLat([lon,lat]).addTo(map);map.flyTo({center:[lon,lat],zoom:Math.max(map.getZoom(),2),duration:window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:900});},
   clear(){selectedPoint=null;marker?.remove();marker=null;},

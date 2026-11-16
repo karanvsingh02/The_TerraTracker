@@ -46,7 +46,14 @@
     <!-- This is a contextual map inspector, not a navigation sidebar. -->
     <section class="inspector" aria-label="Selected point and scientific analysis">
       <div class="inspector-scroll">
-        <header class="point-header"><svg class="icon"><use href="#pin"/></svg><div><h2 id="point-title">Click point to get started</h2><p id="point-subtitle" font-weight="3">Select anywhere on the map to investigate.</p></div><button id="clear-point" class="icon-button" aria-label="Clear selected point" hidden>×</button></header>
+        <header class="point-header"><svg class="icon"><use href="#pin"/></svg><div><h2 id="point-title">Click point to get started</h2><button type="button" id="place-search-toggle" aria-expanded="false" aria-controls="place-search" title="Search for a city or area"><span id="point-subtitle">Select anywhere on the map to investigate.</span><span class="place-search-cue">Search city or area ↗</span></button></div><button id="clear-point" class="icon-button" aria-label="Clear selected point" hidden>×</button></header>
+        <form id="place-search" class="place-search" hidden role="search" aria-label="Find a city or area">
+          <label for="place-query">City or area of interest</label>
+          <div class="place-search-input"><input id="place-query" name="q" type="search" placeholder="e.g. London, Ontario" minlength="2" maxlength="120" autocomplete="off" required><button type="submit">Search</button></div>
+          <p id="place-search-status" class="helper" role="status"></p>
+          <ul id="place-search-results" aria-label="Matching places"></ul>
+          <small>Include a region or country to narrow your search. Smaller settlements may not be listed; you can also select the map.</small>
+        </form>
         <section class="inspector-section">
           <h3><svg class="icon"><use href="#layers"/></svg>Selected Variable</h3>
           <label class="sr-only" for="variable">Numerical point variable</label>
@@ -61,7 +68,7 @@
           </details>
           <p id="status" class="status" role="status" aria-live="polite">Ready when you are.</p>
         </section>
-        <section class="inspector-section chart-section"><h3><svg class="icon"><use href="#chart"/></svg><span id="chart-title">Time Series</span></h3><p id="chart-period" class="section-subtitle">Your selected period will appear here</p><p id="range-note" class="helper" aria-live="polite"></p><div id="chart-container" class="chart-placeholder"><svg class="icon"><use href="#chart"/></svg><p>A point. A period. A new perspective.</p><small>Retrieve data to reveal the historical record.</small></div><div class="export-actions"><button id="export-csv" disabled>Export CSV ↗</button><button id="export-chart" disabled>Save chart ↗</button></div></section>
+        <section class="inspector-section chart-section"><h3><svg class="icon"><use href="#chart"/></svg><span id="chart-title">Time Series</span></h3><p id="chart-period" class="section-subtitle">Your selected period will appear here</p><p id="range-note" class="helper" aria-live="polite"></p><div id="chart-container" class="chart-placeholder"><svg class="icon"><use href="#chart"/></svg><p>A point. A period. A new perspective.</p><small>Retrieve data to reveal the historical record.</small></div><div class="export-actions"><button id="export-csv" disabled>Export CSV ↗</button><button type="button" id="play-timelapse" aria-pressed="false">Play timelapse ▷</button><button id="export-chart" disabled>Save chart ↗</button></div></section>
         <section class="inspector-section" id="trend-section" hidden><h3>Trend analysis</h3><div id="trend-results"></div></section>
         <section class="inspector-section source-section"><h3><span class="info-icon">i</span>Data Source</h3><a id="dataset-link" href="https://power.larc.nasa.gov/" target="_blank" rel="noopener"><span id="dataset-name">NASA POWER · daily point data</span><svg class="icon"><use href="#external"/></svg></a><p id="source-observation">Observation: not retrieved</p><p id="source-publication">Provider publication time: not supplied</p><p id="source-retrieved">Retrieved: not yet</p><span class="freshness" id="freshness"><i></i>Historical observations</span><p class="helper" id="science-note">No measurements are simulated. Trend significance does not establish causation.</p></section>
       </div>

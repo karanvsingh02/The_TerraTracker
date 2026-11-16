@@ -30,7 +30,9 @@ export async function getObservations(selection, signal, onProgress=()=>{}) {
   if(!/^[a-f0-9]{64}$/.test(jobId||''))throw Error('The extraction server returned an invalid task identifier.');
   while(result.status!=='done') {
    if(result.status==='error')throw Error(result.error||'The scientific provider could not complete this extraction.');
-   onProgress(result.providerStatus==='pending'?'NASA has queued this extraction; processing has not started yet. Your point is saved. Retrying reconnects to the same request.':result.status==='processing'?'NASA is processing your observations. Your point is saved; no need to click Retrieve again.':('Retrieving scientific observations…'+(typeof result.progress==='number'?' '+Math.round(result.progress*100)+'%':'')),result.preview);
+   const percentage=typeof result.progress==='number'?' '+Math.round(result.progress*100)+'%':'';
+   const sstMessage=result.status==='processing'?'NASA is preparing your SST history'+percentage+(result.inputFiles?' ('+Number(result.inputFiles).toLocaleString()+' daily files)':'')+'. Available measurements appear while the full history loads.':result.status==='downloading'?'Downloading your SST history'+percentage+'. Available measurements are shown below.':'Retrieving SST observations…'+percentage;
+   onProgress(selection.variable==='SST'?sstMessage:result.providerStatus==='pending'?'NASA has queued this extraction; processing has not started yet. Your point is saved. Retrying reconnects to the same request.':result.status==='processing'?'NASA is processing your observations. Your point is saved; no need to click Retrieve again.':('Retrieving scientific observations…'+(typeof result.progress==='number'?' '+Math.round(result.progress*100)+'%':'')),result.preview);
    await new Promise((resolve,reject)=>{
     const cancelled=()=>{clearTimeout(timer);reject(new DOMException('Aborted','AbortError'));};
     const timer=setTimeout(()=>{signal?.removeEventListener('abort',cancelled);resolve();},2000);

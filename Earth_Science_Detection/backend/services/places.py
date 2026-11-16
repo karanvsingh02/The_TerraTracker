@@ -66,3 +66,39 @@ def resolve_place(latitude, longitude):
             'nearestCity': nearest, 'source': 'Natural Earth',
             'sourceUrl': 'https://www.naturalearthdata.com/',
             'note': 'Approximate geographic reference. Nearest city means nearest city in the bundled gazetteer; smaller settlements may be closer.'}
+
+
+def _search_text(value):
+    import unicodedata
+    return ''.join(character for character in unicodedata.normalize('NFKD', value.casefold())
+                   if not unicodedata.combining(character))
+
+
+@lru_cache(maxsize=1)
+def search_index():
+    cities, _, _ = reference_data()
+    entries = []
+    for city in cities:
+        label = ', '.join(dict.fromkeys(part for part in
+                         [city['name'], city.get('region'), city.get('country')] if part))
+        entries.append((city, label, _search_text(city['name']), _search_text(label)))
+    return entries
+
+
+@lru_cache(maxsize=256)
+def search_places(query):
+    """Search the bundled gazetteer, including region/country disambiguation."""
+    text = _search_text(query.strip())
+    words = text.replace(',', ' ').split()
+    if len(text) < 2 or not words:
+        return []
+    matches = []
+    for city, label, name, searchable in search_index():
+        if not all(word in searchable for word in words):
+            continue
+        rank = (0 if name == text else 1 if name.startswith(text) else
+                2 if all(word in name for word in words) else 3)
+        matches.append((rank, label, city))
+    return [{'label': label, 'name': city['name'], 'lat': city['coordinates'][1],
+             'lon': city['coordinates'][0], 'source': 'Natural Earth'}
+            for _, label, city in sorted(matches, key=lambda item: (item[0], item[1]))[:10]]

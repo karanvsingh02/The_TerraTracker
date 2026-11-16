@@ -12,7 +12,7 @@ from backend.catalog import VARIABLES
 from backend.adapters.power import fetch_point
 from backend.adapters import gravis
 from backend.services.trends import analyze
-from backend.services.places import resolve_place
+from backend.services.places import resolve_place, search_places
 from backend.settings import earthdata_configured
 from backend.adapters import appeears, ocean, ozone, ornl, firms
 from backend.services import jobs
@@ -87,6 +87,10 @@ async def ozone_image(observed: date):
     except ValueError as error: raise HTTPException(404,str(error))
     except Exception: raise HTTPException(502,'KNMI ozone map is temporarily unavailable.')
 
+@app.get('/api/places/search')
+async def place_search(q: str = Query(min_length=2, max_length=120)):
+    return {'results': await run_in_threadpool(search_places, q), 'source': 'Natural Earth'}
+
 @app.get('/api/places/reverse')
 async def reverse_place(lat: float = Query(ge=-90, le=90), lon: float = Query(ge=-180, le=180)):
     return await run_in_threadpool(resolve_place, round(lat, 4), round(lon, 4))
@@ -117,7 +121,7 @@ async def observations(lat: float = Query(ge=-90, le=90), lon: float = Query(ge=
         raise HTTPException(400, 'Invalid variable or date range. Use 1981 onward, before today, up to 45 years.')
     query=dict(lat=lat,lon=lon,variable=variable,start=start.isoformat(),end=end.isoformat(),resolution=resolution,deseasonalize=deseasonalize)
     if variable not in VARIABLES and (variable in appeears.PROFILES or variable in ocean.PROFILES or variable in ('OZONE','ELEVATION','SOIL','GROUNDWATER','ICE_MASS','FIRE','GLACIER_VELOCITY')):
-        if variable in appeears.PROFILES and variable not in ornl.PROFILES and variable not in ('SURFACE_MOISTURE','ROOT_MOISTURE') and not earthdata_configured():
+        if (variable=='SST' or (variable in appeears.PROFILES and variable not in ornl.PROFILES and variable not in ('SURFACE_MOISTURE','ROOT_MOISTURE'))) and not earthdata_configured():
             raise HTTPException(409, 'Configure Earthdata credentials in earthdata.env for this NASA extraction.')
         query=dict(lat=lat,lon=lon,variable=variable,start=start.isoformat(),end=end.isoformat(),resolution=resolution,deseasonalize=deseasonalize)
         if variable=='FIRE':

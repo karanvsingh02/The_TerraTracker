@@ -44,3 +44,19 @@
 .dashboard-window .map-panel{border:0;border-radius:0}
 @media(min-width:1600px){.dashboard-window{margin-top:28px}}
 @media(max-width:740px){.dashboard-window{margin-top:22px;border-radius:15px}.dashboard-window .system-tabs{padding:4px 4px 0}.dashboard-window .system-tab{padding-bottom:15px}.dashboard-window .inspector{border-right:0;border-top:1px solid #bead9c}.dashboard-window .workspace{gap:0}}
+
+/* Place names double as a keyboard-accessible location search. */
+#place-search-toggle{display:block;text-align:left;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;max-width:100%}
+#place-search-toggle:hover #point-subtitle{text-decoration:underline;text-underline-offset:3px}
+#place-search-toggle:focus-visible{outline:2px solid #735c47;outline-offset:4px;border-radius:3px}
+#point-subtitle{display:block}
+.place-search-cue{display:block;margin-top:5px;font-size:11px;color:#806550}
+.place-search{padding:0 0 20px;border-bottom:1px solid #d7c6b3;margin-bottom:20px}
+.place-search[hidden]{display:none}
+.place-search label{display:block;margin-bottom:8px;font-weight:600;font-size:13px}
+.place-search-input{display:flex;gap:7px}.place-search-input input{min-width:0;flex:1;width:100%;padding:10px;border:1px solid #c9b49c;border-radius:8px;background:#fff8ed;color:#382f29;font:inherit;font-size:13px}
+.place-search button{border:1px solid #c9b49c;border-radius:8px;background:#f5e8d6;color:#382f29;padding:9px 11px;cursor:pointer;font:inherit;font-size:12px}
+.place-search button:hover,.place-search button:focus-visible{background:#e7d5bd}
+#place-search-results{list-style:none;padding:0;margin:10px 0;max-height:235px;overflow-y:auto}
+#place-search-results li+li{margin-top:5px}#place-search-results button{display:block;width:100%;text-align:left;line-height:1.5}
+.place-search small{display:block;color:#887665;font-size:11px;line-height:1.6}

@@ -6,7 +6,7 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from backend.adapters import appeears,ornl,land
+from backend.adapters import appeears,ornl,land,harmony_sst
 import requests
 
 ROOT=Path(__file__).resolve().parent.parent.parent/'.runtime'
@@ -33,6 +33,7 @@ def update(job_id,status,context=None,result=None,error=None):
   db.execute('UPDATE jobs SET status=?,context=COALESCE(?,context),result=COALESCE(?,result),error=?,updated=? WHERE id=?',(status,json.dumps(context) if context is not None else None,json.dumps(result,allow_nan=False) if result is not None else None,error,time.time(),job_id))
 
 def ensure(request):
+ if request.get('variable')=='SST':request={**request,'sourceRevision':harmony_sst.REVISION}
  encoded=json.dumps(request,sort_keys=True)
  job_id=hashlib.sha256(encoded.encode()).hexdigest()
  with connection() as db:db.execute('INSERT OR IGNORE INTO jobs VALUES (?,?,?,?,?,?,?)',(job_id,encoded,'queued','{}',None,None,time.time()))
@@ -54,7 +55,28 @@ def run(job_id):
  retry=False
  try:
   job=read(job_id);query=job['request'];variable=query['variable'];context=job['context']
-  if variable in ornl.PROFILES or variable in land.PROFILES or variable not in appeears.PROFILES:
+  if variable=='SST':
+   if not context.get('providerTaskId'):
+    update(job_id,'submitting')
+    context=harmony_sst.submit(query)
+    update(job_id,'processing',context=context)
+   state=harmony_sst.task_status(context['providerTaskId'])
+   if state.get('status') in ('failed','canceled','error'):
+    raise RuntimeError('NASA Harmony could not complete this sea temperature extraction. Retry with a shorter period or another ocean point.')
+   if state.get('status')!='successful':
+    if time.time()-context.get('previewUpdatedAt',0)>60 and any(link.get('rel')=='data' for link in state.get('links',[])):
+     try:
+      sample=harmony_sst.preview(context,state)
+      if sample:context={**context,'preview':sample,'previewUpdatedAt':time.time()}
+     except (requests.RequestException,ValueError,PermissionError,RuntimeError):pass
+    update(job_id,'processing',context={**context,'providerStatus':state.get('status'),'progress':float(state.get('progress') or 0)/100,'inputFiles':state.get('numInputGranules')})
+    retry=True
+    return
+   update(job_id,'downloading',context=context)
+   def progress(fraction,preview):
+    update(job_id,'downloading',context={**context,'progress':fraction,'preview':preview or context.get('preview')})
+   result=harmony_sst.collect(context,progress)
+  elif variable in ornl.PROFILES or variable in land.PROFILES or variable not in appeears.PROFILES:
    from backend.services.observations import fetch_archive
    update(job_id,'retrieving')
    def progress(fraction,preview):
@@ -88,4 +110,4 @@ def run(job_id):
    timer=threading.Timer(15,resume,args=(job_id,));timer.daemon=True;timer.start()
 
 def public(job):
- return {'jobId':job['jobId'],'status':job['status'],'providerTaskId':job['context'].get('providerTaskId'),'providerStatus':job['context'].get('providerStatus'),'progress':job['context'].get('progress'),'preview':job['context'].get('preview'),'result':job['result'],'error':job['error']}
+ return {'jobId':job['jobId'],'status':job['status'],'providerTaskId':job['context'].get('providerTaskId'),'providerStatus':job['context'].get('providerStatus'),'progress':job['context'].get('progress'),'preview':job['context'].get('preview'),'inputFiles':job['context'].get('inputFiles'),'result':job['result'],'error':job['error']}
